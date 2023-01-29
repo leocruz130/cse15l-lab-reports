@@ -16,7 +16,8 @@ Once installed you should have a screen similar to this.
 Once you get to this screen look at the top bar of your screen and click on Terminal -> New Terminal.
 ![vs code terminal](images/img2.jpg)
 
-Click on the arrow on the bottom right and click Git Bash and once prompted enter the command ``ssh CSE15LSTUDENTACCOUNTEXAMPLE@ieng6.ucsd.edu``.
+Click on the arrow on the bottom right and click Git Bash and once prompted enter the command
+``ssh CSE15LSTUDENTACCOUNTEXAMPLE@ieng6.ucsd.edu``.
 ![bash command prompt](images/img3.PNG)
 Make sure to replace the student account example with your own.
 Once prompted enter your password and your screen should look something like this.
