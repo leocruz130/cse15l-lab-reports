@@ -56,7 +56,59 @@ Here it is in action.\
 ![integers](images/integers.PNG)
 
 -In this example we can see when we enter in the url a new query adding integers is still considered as a string.
--Both the main method of STringServer & the handleRequest method of Handler are still being called.
--The important thing about this example is that in the URL we have integer values that still get added and formatted to string values.
+-Both the main method of StringServer & the handleRequest method of Handler are still being called.
+-The important thing about this example is that in the URL value we have integer values that still get added and formatted to string values.
 
 ## Part 2
+
+```java
+import static org.junit.Assert.*;
+import org.junit.*;
+
+public class ArrayTests {
+    @Test
+    public void passedTestReversed() {
+        int[] input1 = { };
+        assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
+  }
+   @Test 
+    public void failedTestReversed() {
+        int[] input1 = { 3, 2 };
+        assertArrayEquals(new int[]{ 2, 3 }, ArrayExamples.reversed(input1));
+ }
+}
+```
+
+![tests](images/tests.PNG)
+
+The ``@Test`` code line signifies to JUnit that the method under it is a test and through the screenshot its clear that passedTestReversed() passed and failedTestReversed() failed. The symptom shown in the failed tests shows that when the array is length more than 1 fails to produce a new reversed array. In the following code snippets I'll detail the before and after code change required to fix it.
+
+### Before
+
+```java
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for (int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+  }
+```
+
+### After
+
+```java
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for (int i = 0; i < arr.length; i += 1) {
+      newArray[arr.length - i - 1] = arr[i];
+    }
+    return newArray;
+  }
+```
+
+The issues with the first program was that it was assigning the empty values of the new array we created to our original arr. Another issue was that after executing the for loop we would return the original arr which is not the new array we are looking for. So our fix addresses these issues by first making sure that the newArray was being assigned the values of arr in reverse order and that we would return this new array after the for loop executes.
+
+## Part 3
+
+Some things that I learned through week 2 and week 3 labs was being able to create a web server that can work with java code. This interested me because my limited knowledge led me to believe that programs like python were the only ones that could work with web servers. Also being able to decompose how URL
