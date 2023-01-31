@@ -111,4 +111,4 @@ The issues with the first program was that it was assigning the empty values of 
 
 ## Part 3
 
-Some things that I learned through week 2 and week 3 labs was being able to create a web server that can work with java code. This interested me because my limited knowledge led me to believe that programs like python were the only ones that could work with web servers. Also being able to decompose how URL
+Some things that I learned through week 2 and week 3 labs was being able to create a web server that can work with java code. This interested me because my limited knowledge led me to believe that programs like python were the only ones that could work with web servers. Also being able to decompose a URL to its various parts like the domain, path, and even queries.
