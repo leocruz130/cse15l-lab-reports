@@ -51,13 +51,14 @@ Here it is in action.\
 
 - In this example the main method of StringServer & the handleRequest method of Handler are being called to execute this screen.
 - For the main method of StringServer args would be considered the port number when initializing the server. It is important that you get to choose what port number to start your server as it helps deliver data to the wanted host on the network.
-- the handleRequest method takes in the url that we typed and converts the url value to a string array value to add the right hand side of the query to the words string.
+- the handleRequest method takes in the path of the URL and splits it into a String array at the query using the ``.getQuery`` method.
 
 ![integers](images/integers.PNG)
 
--In this example we can see when we enter in the url a new query adding integers is still considered as a string.
--Both the main method of StringServer & the handleRequest method of Handler are still being called.
--The important thing about this example is that in the URL value we have integer values that still get added and formatted to string values.
+- In this example we can see when we enter in the url a new query adding integers is still considered as a string.
+- Both the main method of StringServer & the handleRequest method of Handler are still being called.
+- The string before is "Hello World" and after inputting this path we get "Hello World\n123" as a single String variable.
+- The important thing about this example is that in the URL value we have integer values that still get added and formatted to string values.
 
 ## Part 2
 
@@ -66,11 +67,13 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 public class ArrayTests {
+    //The expected output should be an empty array and the input is an empty array
     @Test
     public void passedTestReversed() {
         int[] input1 = { };
         assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
   }
+    //The expected output is an array consisting {2, 3} and the input is an array consisting of {3, 2}
    @Test 
     public void failedTestReversed() {
         int[] input1 = { 3, 2 };
@@ -81,7 +84,7 @@ public class ArrayTests {
 
 ![tests](images/tests.PNG)
 
-The ``@Test`` code line signifies to JUnit that the method under it is a test and through the screenshot its clear that passedTestReversed() passed and failedTestReversed() failed. The symptom shown in the failed tests shows that when the array is length more than 1 fails to produce a new reversed array. In the following code snippets I'll detail the before and after code change required to fix it.
+The ``@Test`` code line signifies to JUnit that the method under it is a test and through the screenshot its clear that passedTestReversed() passed because there was either nothing to reverse or that an array of size one is already reversed in a way. The failedTestReversed() failed because we expected the int array to be reversed but in reality we got an array that consisted of {3,0}. The symptom shown in the failed tests shows that when the array is length more than 1 fails to produce a new reversed array. Being able to understand how and why a symptom happens in code is one of the key motivations to fix my code. In the following code snippets I'll detail the before and after code change required to fix it.
 
 ### Before
 
