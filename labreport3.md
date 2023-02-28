@@ -1,11 +1,13 @@
 
-# Lab Report 3
+# Lab Report 3 - Researching Commands
 
-## Researching Commands
+## ``grep -c`` Command Line Option
 
-### ``grep -c`` Command Line Option
+The ``grep -c`` command line option searches through the file and prints the total amount of times the specific string appears in the file. It is not case sensitive and is really useful if you want to count the total amount of times a keyword is said in a book.
 
-```
+### ``grep -c`` Example #1
+
+```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -c "The" written_2/non-fiction/OUP/Abernathy/*.txt
 written_2/non-fiction/OUP/Abernathy/ch1.txt:50
@@ -19,7 +21,11 @@ written_2/non-fiction/OUP/Abernathy/ch8.txt:47
 written_2/non-fiction/OUP/Abernathy/ch9.txt:33
 ```
 
-```
+In this example I am searching through texts of the subdirectory Abernathy and using -c to specify that I am looking for instances of the word "The". Since this option is not case sensitive as you can see through the example the word "the" for the first text file appears 50 times, whether that be "THE" "the" "The" or "tHe".
+
+### ``grep -c`` Example #2
+
+```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -c "and" written_2/non-fiction/OUP/Berk/*.txt
 written_2/non-fiction/OUP/Berk/ch1.txt:143
@@ -28,11 +34,15 @@ written_2/non-fiction/OUP/Berk/CH4.txt:170
 written_2/non-fiction/OUP/Berk/ch7.txt:124
 ```
 
-The ``grep -c`` command line option searches through the file and prints the total amount of times the specific string appears in the file. It is not case sensitive and is really useful if you want to count the total amount of times a keyword is said in a book.
+In this example I am searching through the texts of the subdirectory Berk and using -c to count how many times the string "and" appears on each text. The resulting output shows that "and" appears a lot in all of these texts. The output gives us the working path to the text and the amount of times "and" appears in the form of a number.
 
-### ``grep -r`` Command Line Option
+## ``grep -r`` Command Line Option
 
-```
+The ``grep -r`` command line argument allows you to recursively search through the directory and subdirectories. This is really useful in combination with the ``-c`` command line option to recursively go through a directory instead of manually inputting each subdirectory. I also use the ``-c`` command line due to the output of ``-r`` also printing out the line that the string appears in.
+
+### ``grep -r`` Example #1
+
+```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -r -c "the" written_2/travel_guides/
 written_2/travel_guides/berlitz1/HandRHawaii.txt:64
@@ -216,7 +226,11 @@ written_2/travel_guides/berlitz2/Vallarta-WhatToDo.txt:61
 written_2/travel_guides/berlitz2/Vallarta-WhereToGo.txt:111
 ```
 
-```
+In this example I have a directory called travel_guides that contains two subdirectories berlitz1 and berlitz2. Instead of manually running each command for each sub directory I use the ``grep -r`` command to recursively search for the string "the" through both the subdirectories. The reason I used the ``-c`` command is because when using the ``-r`` command it prints out the line the string appears on and it would clutter up the terminal too much.
+
+### ``grep -r`` Example #2
+
+```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -r -c "among themselves" written_2/non-fiction/
 written_2/non-fiction/OUP/Abernathy/ch1.txt:0
@@ -266,11 +280,15 @@ written_2/non-fiction/OUP/Rybczynski/ch2.txt:0
 written_2/non-fiction/OUP/Rybczynski/ch3.txt:0
 ```
 
-The ``grep -r`` command line argument allows you to recursively search through the directory and subdirectories. This is really useful in combination with the ``-c`` command line option to recursively go through a directory instead of manually inputting each subdirectory. I also used the ``-c`` command line due to the output of just ``-r`` being too long to copy down.
+In this example I am looking through the subdirectory OUP in the non-fiction directory. In this subdirectory there are many subdirectories named after the authors of each text. It would be a labor to manually type each ``grep "this"`` for each sub directory so I recursively go through each text file and look if there is an instance of "among themselves" in the text.
 
-### ``grep -i`` Command Line Argument
+## ``grep -i`` Command Line Argument
 
-```
+The ``grep -i`` command line argument performs a case sensitive search for the keyword you input. This is useful incase you want to differentiate between different words that might contain accents.
+
+### ``grep -i`` Example #1
+
+```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -i "Limón" written_2/non-fiction/OUP/Castro/chB.txt
 Robe’s collection of New Mexico legends contains thirty-four variants of the devil-at-the-dance tale. Although the legends in this collection are from rural northern New Mexico, collected in the 1950s and 1960s, we find contemporary versions of the devil-at-the-dance tales in south Texas and in Baja California from the 1980s. Limón 
@@ -282,6 +300,10 @@ References Bell 1927; De Leon 1982; Limón 1983, 1994; Peña 1980, 1985b; Shay 1
 References Limón 1994; New Handbook of Texas 1996
 ```
 
+In this example I use the command ``grep -i`` to search for the string "Limón" which contains an accent on the o. using ``-i`` makes the search case sensitive so the output on my terminal gives the the line where "Limón" appears but not where "Limon" appears on the text.
+
+### ``grep -i`` Example #2 
+
 ```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -i "Coconstructing" written_2/non-fiction/OUP/Kauffman/ch10.txt 
@@ -289,9 +311,13 @@ A Coconstructing Cosmos?
 Coconstructing Complexity?
 ```
 
-The ``grep -i`` command line argument performs a case sensitive search for the keyword you input. This is useful incase you want to differentiate between different words that might contain accents.
+## ``grep -n`` Command Line Argument
 
-```
+The ``grep -n`` command line argument displays the matched lines and what line number they appear on. This is helpful if you want to search a tourist attraction and learn more about it.]
+
+### ``grep -n`` Example #1
+
+```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -n "relaxing" written_2/travel_guides/berlitz1/*.txt
 written_2/travel_guides/berlitz1/HandRHawaii.txt:152:        floors, private gardens, and spacious lanais create a relaxing hideaway
@@ -318,10 +344,12 @@ written_2/travel_guides/berlitz1/WhereToLakeDistrict.txt:866:        Water ferry
 written_2/travel_guides/berlitz1/WhereToMadeira.txt:645:        Ribeiro Frio is relaxing, but the real reason for its
 ```
 
-```
+In this example I use ``grep -n "relaxing"`` to search what line the string appears on each text of the berlitz1 subdirectory and the line that it appears on. This is somewhat like the combination of ``grep -c`` and the normal command of grep. As shown on the terminal code block we see the number of the line the string appears on and the actual line the string appears on.
+
+```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -n "delicious" written_2/travel_guides/berlitz2/Algarve-WhereToGo.txt
 36:From the center of town, head to the waterfront, especially if it’s anywhere near time for lunch or dinner. You can almost follow your nose toward the heady aroma of grilled sardines. It will take you to the dockside, lined with simple restaurants, one after the other, all serving delicious, smoky sardines (and other fresh-caught fish). Choose whichever spot seems to be bustling with ravenous patrons. A plate of grilled sardines, prawns, or squid and a bottle of house wine make a fantastic meal, and the prices are about as low as anywhere along the coast.
 ```
 
-The ``grep -n`` command line argument displays the matched lines and what line number they appear on. This is helpful if you want to search a tourist attraction and learn more about it.
+In this example I use ``grep -n "delicious"`` in the text file Algarve-WhereToGo.txt. Just like before it gives me the line number where the String resides at and the actual line where the string appears on.
