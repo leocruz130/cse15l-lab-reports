@@ -346,6 +346,8 @@ written_2/travel_guides/berlitz1/WhereToMadeira.txt:645:        Ribeiro Frio is 
 
 In this example I use ``grep -n "relaxing"`` to search what line the string appears on each text of the berlitz1 subdirectory and the line that it appears on. This is somewhat like the combination of ``grep -c`` and the normal command of grep. As shown on the terminal code block we see the number of the line the string appears on and the actual line the string appears on.
 
+### ``grep -n`` Example #2
+
 ```BASH
 Leo Cruz@DESKTOP-B9LT90S MINGW64 ~/Documents/My_Git_Repository/docsearch (main)
 $ grep -n "delicious" written_2/travel_guides/berlitz2/Algarve-WhereToGo.txt
