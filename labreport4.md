@@ -2,7 +2,6 @@
 
 In order to get through these steps as quickly as I could I used a google document that contained the following.
 
-
 ## Step 1: Accessing ieng6 account
 
 ![step 4](images/step4.PNG)
@@ -32,7 +31,6 @@ keys pressed: `cd l <Tab><Enter>`, `<Ctrl + C><Ctrl + V><Enter>`, `<Ctrl + C><Ct
 ### Step 3: Explained
 
 In order to run and demonstrate the failing tests I first cd into the Lab7 repo I just cloned by using the `cd` command. Once i type cd and space I type the first letter of the repo which is l. Since my ieng6 directory is empty once I press tab it autocompleted to the lab7 directory and I press enter. Once in the lab7 directory I copy the command `javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java` from the doc and pasted it and pressed enter. This compiled the JUnit files and all .java files in the lab7 directory. Then I copy and pasted the following command `java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests` in order to run the JUnit tests in the ListExamplesTests.java file.
-
 
 ## Step 4: Edit The Code File to Fix The Failing Test
 
